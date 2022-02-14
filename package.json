@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ojhb1/sd/issues"
   },
-  "homepage": "https://github.com/ojhb1/sd#readme"
+  "homepage": "https://github.com/ojhb1/sd#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
 }

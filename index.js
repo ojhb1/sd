@@ -1,4 +1,4 @@
-const { response } = require('express');
+/*const { response } = require('express');
 var http = require('http');
 
 http.createServer((request,response)=>{
@@ -7,10 +7,10 @@ http.createServer((request,response)=>{
 
 }).listen(8080);
 
-console.log('Servidor ejecutandose en puerto 8080...');
+console.log('Servidor ejecutandose en puerto 8080...');*/
 'use strict'
 const express = require('express');
-const app = expres();
+const app = express();
 
 app.get('/hola',(request,response)=>{
     response.send('Hola a todos y a todas desde Express!')
