@@ -8,3 +8,16 @@ http.createServer((request,response)=>{
 }).listen(8080);
 
 console.log('Servidor ejecutandose en puerto 8080...');
+'use strict'
+const express = require('express');
+const app = expres();
+
+app.get('/hola',(request,response)=>{
+    response.send('Hola a todos y a todas desde Express!')
+});
+
+
+app.listen(8080, ()=>{
+    console.log('API REST ejecutandose en http://localhost:8080/hola');
+
+});
