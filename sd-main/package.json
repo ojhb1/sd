@@ -1,0 +1,22 @@
+{
+  "name": "api-rest.2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ojhb1/sd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ojhb1/sd/issues"
+  },
+  "homepage": "https://github.com/ojhb1/sd#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
