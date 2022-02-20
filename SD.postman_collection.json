@@ -1,0 +1,33 @@
+{
+	"info": {
+		"_postman_id": "e3c48570-43cc-4e11-9b4a-1c0e3274f3da",
+		"name": "SD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SD ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"silla alta\",\n    \"descripcion\":\"silla de madera\",\n    \"foto\":\"silla_alta.png\",\n    \"categoría\":\"mobiliario\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
