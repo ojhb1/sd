@@ -68,10 +68,6 @@ app.put('/api/:coleccion/:id', (req, res, next) => {
          res.json(elementoModif);
          });
          });
-app.delete('/api/products/:productID', (req, res) => {
-    const ID = req.params.productID;
-res.status(200).send({result:'ok',_id: `${ID}`});
-});
 
 
 app.delete('/api/:coleccion/:id', (req, res, next) => {

@@ -6,16 +6,104 @@
 	},
 	"item": [
 		{
-			"name": "SD ",
+			"name": "/api/{Colection}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "POST",
-				"header": [],
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\":\"silla alta\",\n    \"descripcion\":\"silla de madera\",\n    \"foto\":\"silla_alta.png\",\n    \"categoría\":\"mobiliario\"\n}"
+					"raw": "{ \n\"tipo\": \"Hermano\",\n\"nombre\": \"Pepe\",\n\"edad\": 46\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/products",
+					"raw": "http://localhost:3000/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\"tipo\": \"Hermano\",\n\"nombre\": \"Pepe\",\n\"edad\": 46\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/{Collection}/{Identificador}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\"tipo\": \"Hermano\",\n\"nombre\": \"Pepe\",\n\"edad\": 46\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/familia/621bf50015aa1041acecabb8",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -23,7 +111,104 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"products"
+						"familia",
+						"621bf50015aa1041acecabb8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/{Coleccion}/{identificador}",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\"tipo\": \"Hermano\",\n\"nombre\": \"Pepe\",\n\"edad\": 46\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/familia/621bf50015aa1041acecabb8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"familia",
+						"621bf50015aa1041acecabb8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/{Coleccion}/{identificador}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\"tipo\": \"Hermano\",\n\"nombre\": \"Pepe\",\n\"edad\": 46\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/familia/621bf50015aa1041acecabb8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"familia",
+						"621bf50015aa1041acecabb8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/{Coleccion}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\"tipo\": \"Hermano\",\n\"nombre\": \"Pepe\",\n\"edad\": 46\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/familia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"familia"
 					]
 				}
 			},
