@@ -18,6 +18,7 @@
     },
     "homepage": "https://github.com/ojhb1/sd#readme",
     "dependencies": {
+        "cors": "^2.8.5",
         "express": "^4.17.3",
         "mongodb": "^4.4.0",
         "mongojs": "^3.1.0",
