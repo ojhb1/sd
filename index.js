@@ -7,13 +7,21 @@ http.createServer((request,response)=>{
 console.log('Servidor ejecutandose en puerto 8080...');*/
 'use strict'
 const port = process.env.PORT || 3000;
+const PORT = 443;
+const https = require('https');
 const express = require('express');
 const logger = require('morgan');
+const  OPTIONS_HTTPS = {
+    key: fs.readFileSync('./cert/key.pem'),
+    cert: fs.readFileSync('./cert/cert.pem')
+};
 const mongojs = require('mongojs');
 const app = express();
 const cors = require('cors');
+var helmet = require('helmet');
 var db = mongojs("SD");
-
+var fs = require('fs');
+var https = require('https');
 var id = mongojs.ObjectID; 
 // Declaraciones
 var allowCrossTokenHeader = (req, res, next) => {
@@ -29,11 +37,13 @@ var auth = (req, res, next) => {
 };
 
 // Middlewares
+app.use(helmet());
 app.use(cors());
 app.use(logger('dev')); // probar con: tiny, short, dev, common, combined
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(allowCrossTokenHeader);
+
 
 
 app.param("coleccion", (req, res, next, coleccion) => {
@@ -43,6 +53,9 @@ app.param("coleccion", (req, res, next, coleccion) => {
     return next();
     });
 // Implementamos el API RESTFul a través de los métodos
+app.get('/foo', (req, res) => {
+    console.log('Hello, I am foo.');
+    });
 app.get('/api', (req, res, next) => {
     console.log('GET /api');
     console.log(req.params);
@@ -95,6 +108,8 @@ app.get('/api', (req, res, next) => {
                 });
         });
 // Lanzamos nuestro servicio API
-app.listen(port, () => {
-console.log(`API REST ejecutándose en http://localhost:${port}/api/products`);
+
+https.createServer(OPTIONS_HTTPS,app).listen(port, () => {
+    console.log(`SEC WS API REST ejecutándose en http://localhost:${port}/api/products`);
 });
+

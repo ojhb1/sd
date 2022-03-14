@@ -119,6 +119,36 @@
 			"response": []
 		},
 		{
+			"name": "/api/{Coleccion}",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "password1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\"tipo\": \"Hermano\",\n\"nombre\": \"Pepe\",\n\"edad\": 46\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/familia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"familia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "/api/{Coleccion}/{identificador}",
 			"request": {
 				"method": "PUT",
@@ -126,6 +156,11 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "password1234",
 						"type": "text"
 					}
 				],
@@ -163,6 +198,11 @@
 						"key": "Content-Type",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "password1234",
+						"type": "text"
 					}
 				],
 				"body": {
@@ -175,7 +215,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/familia/621bf50015aa1041acecabb8",
+					"raw": "http://localhost:3000/api/familia/621bf50015aa1041acecabb8?Content-Type=application/json&token=password1234",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -185,30 +225,16 @@
 						"api",
 						"familia",
 						"621bf50015aa1041acecabb8"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/api/{Coleccion}",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{ \n\"tipo\": \"Hermano\",\n\"nombre\": \"Pepe\",\n\"edad\": 46\n}"
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/familia",
-					"protocol": "http",
-					"host": [
-						"localhost"
 					],
-					"port": "3000",
-					"path": [
-						"api",
-						"familia"
+					"query": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "token",
+							"value": "password1234"
+						}
 					]
 				}
 			},
