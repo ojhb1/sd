@@ -40,13 +40,25 @@ var allowCrossTokenHeader = (req, res, next) => {
     };
 
 
-var auth = (req, res, next) => {
-    if(req.headers.token === "password1234") {
-    return next();
-    } else {
-    return next(new Error("No autorizado"));
-    };
-};
+    function auth (req, res, next) { 
+    
+        const jwt = req.headers.authorization.split(' ')[1]; 
+        TokenService.decodificaToken(jwt)
+        .then (userId =>{
+            req.user = {
+                id :userId,
+                token : jwt
+            }
+            return next();
+        })
+         .catch (err =>
+             res.status(400).json({
+                 result: 'Error',
+                 msg: err
+             })
+             );
+         
+     }
 
 // Middlewares
 app.use(cors());
@@ -60,7 +72,7 @@ app.use(express.json());
 
 
 
-app.param("coleccion", (req, res, next, coleccion) => {
+app.param("coleccion", auth,(req, res, next, coleccion) => {
     console.log('param /api/:coleccion');
     console.log('colección: ', coleccion);
     req.collection = db.collection(coleccion);
@@ -68,7 +80,7 @@ app.param("coleccion", (req, res, next, coleccion) => {
     });
 // Implementamos el API RESTFul a través de los métodos
 
-app.get('/api', (req, res, next) => {
+app.get('/api', auth, (req, res, next) => {
     console.log('GET /api');
     console.log(req.params);
      console.log(req.collection);
@@ -77,13 +89,13 @@ app.get('/api', (req, res, next) => {
      res.json(colecciones);
      });
  });
- app.get('/api/:coleccion', (req, res, next) => {
+ app.get('/api/:coleccion', auth,(req, res, next) => {
     req.collection.find((err, coleccion) => {
     if (err) return next(err);
     res.json(coleccion);
      });
  });
- app.get('/api/:coleccion/:id', (req, res, next) => {
+ app.get('/api/:coleccion/:id', auth, (req, res, next) => {
     req.collection.findOne({_id: id(req.params.id)}, (err, elemento) => {
     if (err) return next(err);
     res.json(elemento);
