@@ -16,6 +16,9 @@ const helmet = require('helmet');
 
 const mongojs = require('mongojs');
 const app = express();
+const moment = require('moment');
+const TokenService = require('./services/token.service');
+const PassService = require('./services/pass.service.js');
 
 var db = mongojs("SD");
 var fs = require('fs');
